@@ -1,0 +1,27 @@
+# Byte-compiled / Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Network captures
+capture/
+*.pcap
+
+# Exported CSVs
+*.csv
+/tmp/export*.csv
+
+# Docker-related
+*.pid
+*.tar
+.d

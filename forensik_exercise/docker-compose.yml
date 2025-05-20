@@ -1,0 +1,75 @@
+version: "3.8"
+services:
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - forensic-net
+
+  attacker:
+    image: python:3.9-slim
+    volumes:
+      - ./attacker:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install psycopg2-binary requests &&
+               python steal.py"
+    depends_on:
+      - db
+    networks:
+      - forensic-net
+
+  webapp:
+    build: ./app
+    ports:
+      - "5050:5000"   # linker Wert = Host, rechter Wert = Container
+    depends_on:
+      - db
+    networks:
+      - forensic-net
+    volumes:
+      - ./logs:/tmp
+
+  sniffer:
+    image: nicolaka/netshoot
+    command: >
+      bash -c "tcpdump -i eth0 -w /capture/traffic.pcap"
+    volumes:
+      - ./capture:/capture
+    depends_on:
+      - db
+    networks:
+      - forensic-net
+
+  attacker-bad:
+    image: python:3.9-slim
+    volumes:
+      - ./attacker:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install requests &&
+               python bad_exporter.py"
+    depends_on:
+      - webapp
+    networks:
+      - forensic-net
+
+  user-good:
+    image: python:3.9-slim
+    volumes:
+      - ./attacker:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install requests &&
+               python good_user.py"
+    depends_on:
+      - webapp
+    networks:
+      - forensic-net
+
+networks:
+  forensic-net:
