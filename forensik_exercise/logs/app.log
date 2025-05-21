@@ -1,0 +1,96 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.5:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:app:Exception on /export [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/app/app.py", line 32, in export_data
+    logging.info("EXPORT by IP: %s", request.remote_addr)
+NameError: name 'request' is not defined
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:14:00] "[35m[1mGET /export HTTP/1.1[0m" 500 -
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:14:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.4:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:app:Exception on /export [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/app/app.py", line 32, in export_data
+    logging.info("EXPORT by IP: %s", request.remote_addr)
+NameError: name 'request' is not defined
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:17:26] "[35m[1mGET /export HTTP/1.1[0m" 500 -
+ERROR:app:Exception on /export [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/app/app.py", line 32, in export_data
+    logging.info("EXPORT by IP: %s", request.remote_addr)
+NameError: name 'request' is not defined
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:17:50] "[35m[1mGET /export HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.5:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EXPORT by IP: 192.168.65.1
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:20:48] "GET /export HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.3:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EXPORT by user=alice from IP=192.168.65.1
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:23:57] "GET /export?user=alice HTTP/1.1" 200 -
+INFO:root:EXPORT by user=alice from IP=192.168.65.1
+INFO:werkzeug:192.168.65.1 - - [20/May/2025 19:24:07] "GET /export?user=alice HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.19.0.5:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:EXPORT by user=alice from IP=172.19.0.7
+INFO:werkzeug:172.19.0.7 - - [20/May/2025 19:27:57] "GET /export?user=alice HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:27:57] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:27:58] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:27:59] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:00] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:01] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:02] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:03] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:04] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:05] "GET /export?user=bob HTTP/1.1" 200 -
+INFO:root:EXPORT by user=bob from IP=172.19.0.6
+INFO:werkzeug:172.19.0.6 - - [20/May/2025 19:28:06] "GET /export?user=bob HTTP/1.1" 200 -
